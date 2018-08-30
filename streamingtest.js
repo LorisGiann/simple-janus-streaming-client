@@ -4,9 +4,6 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
-var spinner = null;
-
-
 var selectedStream = null;
 
 
