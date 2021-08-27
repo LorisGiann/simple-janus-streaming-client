@@ -6,18 +6,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Janus WebRTC Client: Simple Streaming Demo</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.0.3/adapter.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/8.0.0/adapter.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 <script type="text/javascript" src="janus.js" ></script>
 <script type="text/javascript" src="streamingtest.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" type="text/css"/>
+<style>
+.hide {
+	display: none !important;
+}
+
+#watch {
+	font-size: 2em;
+}
+</style>
 </head>
 
 <body>
 	<div id="streams">
-		<button id="watch">Wait..</button>
-		<div>
-			<div id="stream"></div>
-		</div>
+		<h3 class="panel-title">
+			<button id="watch">Wait..</button>
+			<span class="label label-info hide" id="status"></span>
+			<span class="label label-primary hide" id="curres"></span>
+			<span class="label label-info hide" id="curbitrate"></span>
+			<div>
+				<div id="stream"></div>
+			</div>
+		</h3>
 	</div>
 </body>
 
