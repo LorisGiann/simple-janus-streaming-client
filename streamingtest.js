@@ -210,11 +210,10 @@ $(document).ready(function() {
 											(Janus.webRTCAdapter.browserDetails.browser === "chrome" ||
 												Janus.webRTCAdapter.browserDetails.browser === "firefox" ||
 												Janus.webRTCAdapter.browserDetails.browser === "safari")) {
-											$('#curbitrate').removeClass('hide').show();
 											bitrateTimer = setInterval(function() {
 												// Display updated bitrate, if supported
 												var bitrate = streaming.getBitrate();
-												$('#curbitrate').text(bitrate);
+												$('#curbitrate').removeClass('hide').text(bitrate).show();
 												// Check if the resolution changed too
 												var width = $("#remotevideo").get(0).videoWidth;
 												var height = $("#remotevideo").get(0).videoHeight;
