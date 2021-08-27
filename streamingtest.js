@@ -53,6 +53,7 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
+var spinner = null;
 var selectedStream = null;
 
 
@@ -162,6 +163,9 @@ $(document).ready(function() {
 										// Show the stream and hide the spinner when we get a playing event
 										$("#remotevideo").on("playing", function () {
 											Janus.log("playng");
+											if(spinner)
+												spinner.stop();
+											spinner = null;
 											var videoTracks = stream.getVideoTracks();
 											if(!videoTracks || videoTracks.length === 0){
 												alert("no videotracks ?!?");
@@ -320,6 +324,13 @@ function startStream() {
 	streaming.send({ message: body });
 	// No remote video yet
 	Janus.log("Starting stream");
+
+	if(spinner == null) {
+		var target = document.getElementById('stream');
+		spinner = new Spinner({top:100}).spin(target);
+	} else {
+		spinner.spin();
+	}
 	// Get some more info for the mountpoint to display, if any
 	//getStreamInfo();
 }
